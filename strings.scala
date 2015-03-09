@@ -46,8 +46,14 @@ object strings  {
  */
 
    def getFormattedName(name : String) : String = {
-     
-      "name not calculated yet"
+      val lastSpacePosition = name.lastIndexOf(" ")
+      if (lastSpacePosition < 0)
+         name
+      else {
+         val firstNameParts = name.substring(0, lastSpacePosition)
+         val lastName = name.substring(lastSpacePosition+1)
+         lastName + ", " + firstNameParts
+      } 
    }
 
 }
